@@ -5,10 +5,11 @@ import middlewares from './middlewares'
 Vue.use(Vuex)
 
 export const STORAGE_KEY = 'NotesApp-Vuejs'
+const localStorageData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
 
 const state = {
-  notes: JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'),
-  activeNote: {}
+  notes: localStorageData,
+  activeNote: localStorageData[0] ? localStorageData[0] : {}
 }
 
 export const mutations = {
@@ -33,7 +34,7 @@ export const mutations = {
       state.activeNote.favorite = !state.activeNote.favorite
     }
   },
-  SET_ACTIVE_NOTE (state, note) {
+  UPDATE_ACTIVE_NOTE (state, note) {
     state.activeNote = note
   },
   SHOW_MARK (state) {

@@ -15,12 +15,12 @@
 
 <script>
   import { addNote, toggleNote, deleteNote, showMark } from '../vuex/actions'
+  import { getActiveNote } from '../vuex/getters'
 
   export default {
     vuex: {
       getters: {
-        notes: state => state.notes,
-        activeNote: state => state.activeNote
+        activeNote: getActiveNote
       },
       actions: {
         addNote,

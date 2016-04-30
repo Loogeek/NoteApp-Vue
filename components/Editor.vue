@@ -14,17 +14,13 @@
 <script>
   // import marked from 'marked'
   import { editNote } from '../vuex/actions'
+  import { getActiveNoteText, getActiveNoteShow } from '../vuex/getters'
 
   export default {
     vuex: {
       getters: {
-        activeNoteText: state => {
-          const text = state.activeNote && state.activeNote.text
-          return text ? state.activeNote.text : ''
-        },
-        activeNoteShow: state => {
-          return !state.activeNote.show
-        }
+        activeNoteText: getActiveNoteText,
+        activeNoteShow: getActiveNoteShow
       },
       actions: {
         editNote
@@ -50,5 +46,4 @@
     box-sizing: border-box;
     padding: 20px;
   }
-
 </style>

@@ -3,7 +3,6 @@ import createLogger from 'vuex/logger'
 
 const localStorageMiddleware = {
   onMutation (mutation, { notes }) {
-    console.log(notes)
     localStorage.setItem(STORAGE_KEY, JSON.stringify(notes))
   }
 }

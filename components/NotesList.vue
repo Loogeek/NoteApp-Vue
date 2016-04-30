@@ -39,6 +39,7 @@
 
 <script>
   import { updateActiveNote } from '../vuex/actions'
+  import { getNotes, getActiveNote } from '../vuex/getters'
 
   export default {
     data () {
@@ -48,8 +49,8 @@
     },
     vuex: {
       getters: {
-        notes: state => state.notes,
-        activeNote: state => state.activeNote
+        notes: getNotes,
+        activeNote: getActiveNote
       },
       actions: {
         updateActiveNote
