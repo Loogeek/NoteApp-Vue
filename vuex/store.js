@@ -4,7 +4,9 @@ import middlewares from './middlewares'
 
 Vue.use(Vuex)
 
+// localStorage存储时的key值
 export const STORAGE_KEY = 'NotesApp-Vuejs'
+// 获取本地存储中该key值所对应的数据
 const localStorageData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
 
 const state = {
@@ -13,33 +15,44 @@ const state = {
 }
 
 export const mutations = {
+  // 添加节点
   ADD_NOTE (state) {
     const newNote = {
-      text: 'New note',
+      title: 'New Note',
+      text: 'Hello Note!',
+      editing: false,
       favorite: false,
-      show: false
+      marked: false
     }
     state.notes.push(newNote)
     state.activeNote = newNote
   },
+  // 编辑节点内容
   EDIT_NOTE (state, text) {
     state.activeNote.text = text
   },
+  EDIT_TITLE (state, title) {
+    state.activeNote.title = title
+  },
+  // 删除节点
   DELETE_NOTE (state) {
     state.notes.$remove(state.activeNote)
     state.activeNote = state.notes[0]
   },
+  // 切换当前节点的favorite属性
   TOGGLE_NOTE (state) {
     if (state.activeNote) {
       state.activeNote.favorite = !state.activeNote.favorite
     }
   },
+  // 选中当前点击节点
   UPDATE_ACTIVE_NOTE (state, note) {
     state.activeNote = note
   },
+  // 显示当前节点的文本编辑内容或Markdown效果
   SHOW_MARK (state) {
     if (state.activeNote) {
-      state.activeNote.show = !state.activeNote.show
+      state.activeNote.marked = !state.activeNote.marked
     }
   }
 }

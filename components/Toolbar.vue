@@ -8,7 +8,7 @@
     <i @click="deleteNote" class="glyphicon glyphicon-remove"></i>
     <i @click="showMark"
        class="glyphicon glyphicon-sunglasses"
-       :class="{starred: activeNote ? activeNote.show : ''}">
+       :class="{starred: activeNote ? activeNote.marked : ''}">
     </i>
   </div>
 </template>

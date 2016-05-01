@@ -1,15 +1,43 @@
 import { mutations } from '../../vuex/store'
 
-const { ADD_NOTE } = mutations
+const { ADD_NOTE, EDIT_NOTE, DELETE_NOTE, TOGGLE_NOTE, SHOW_MARK, UPDATE_ACTIVE_NOTE } = mutations
 
 describe('mutations', () => {
-  it('should have correct message', () => {
-    const state = {
-      notes: [],
-      activeNote: {}
-    }
+  const state = {
+    notes: [],
+    activeNote: {}
+  }
+
+  it('ADD_NOTE Test', () => {
     ADD_NOTE(state)
-    expect(state.activeNote.text).toEqual('New note')
+    expect(state.activeNote.text).toEqual('Hello Note!')
     expect(state.activeNote.favorite).toEqual(false)
+    expect(state.activeNote.marked).toEqual(false)
+    expect(state.notes.length).toEqual(1)
+  })
+
+  it('EDIT_NOTE', () => {
+    EDIT_NOTE(state, 'jasmine test')
+    expect(state.activeNote.text).toEqual('jasmine test')
+  })
+
+  it('TOGGLE_NOTE', () => {
+    TOGGLE_NOTE(state)
+    expect(state.activeNote.favorite).toEqual(true)
+  })
+
+  it('SHOW_MARK', () => {
+    SHOW_MARK(state)
+    expect(state.activeNote.marked).toEqual(true)
+  })
+
+  it('UPDATE_ACTIVE_NOTE', () => {
+    UPDATE_ACTIVE_NOTE(state, state.notes[0])
+    expect(state.activeNote).toEqual(state.notes[0])
+  })
+
+  it('DELETE_NOTE', () => {
+    DELETE_NOTE(state)
+    expect(state.notes.length).toEqual(0)
   })
 })

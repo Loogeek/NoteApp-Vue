@@ -1,3 +1,4 @@
+// 产生actions时dispatch相应的mutations
 function makeAction (type) {
   return ({ dispatch }, ...args) => dispatch(type, ...args)
 }
