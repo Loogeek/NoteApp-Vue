@@ -45,5 +45,6 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 20px;
+    overflow: auto;
   }
 </style>

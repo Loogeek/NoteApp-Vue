@@ -10,15 +10,12 @@ describe('mutations', () => {
 
   it('ADD_NOTE Test', () => {
     ADD_NOTE(state)
+    expect(state.activeNote.title).toEqual('New Note')
     expect(state.activeNote.text).toEqual('Hello Note!')
+    expect(state.activeNote.editing).toEqual(false)
     expect(state.activeNote.favorite).toEqual(false)
     expect(state.activeNote.marked).toEqual(false)
     expect(state.notes.length).toEqual(1)
-  })
-
-  it('EDIT_NOTE', () => {
-    EDIT_NOTE(state, 'jasmine test')
-    expect(state.activeNote.text).toEqual('jasmine test')
   })
 
   it('TOGGLE_NOTE', () => {

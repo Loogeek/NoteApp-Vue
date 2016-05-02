@@ -23,22 +23,29 @@
     </div>
     <!-- render notes in a list -->
     <div class="container">
-      <div class="list-group">
-        <a v-for="note in filteredNotes"
-          class="list-group-item" href="#"
-          :class="{active: activeNote === note}"
-          @click="updateActiveNote(note)">
-          <h4 class="list-group-item-heading">
-            {{ note.text.trim().substring(0, 30) }}
-          </h4>
-        </a>
-      </div>
+      <ul class="list-group">
+        <li v-for="note in filteredNotes">
+          <label class="list-group-item-heading list-group-item"
+            @dblclick="note.editing = true"
+            @click="updateActiveNote(note)"
+            :class="{active: activeNote === note}">
+            {{ note.title }}
+          </label>
+          <input
+            class="list-group-item list-item-input"
+            v-show="note.editing"
+            v-focus="note.editing"
+            @blur="doneEditTitle"
+            @keyup.enter="doneEditTitle"
+            @keyup.esc="cancelEditTitle">
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
-  import { updateActiveNote } from '../vuex/actions'
+  import { updateActiveNote, doneEditTitle, cancelEditTitle } from '../vuex/actions'
   import { getNotes, getActiveNote } from '../vuex/getters'
 
   export default {
@@ -53,7 +60,18 @@
         activeNote: getActiveNote
       },
       actions: {
-        updateActiveNote
+        updateActiveNote,
+        doneEditTitle,
+        cancelEditTitle
+      }
+    },
+    directives: {
+      focus (value) {
+        if (value) {
+          this.vm.$nextTick(() => {
+            this.el.focus()
+          })
+        }
       }
     },
     computed: {
@@ -107,5 +125,16 @@
   .list-group-item-heading {
     font-weight: 300;
     font-size: 15px;
+  }
+
+  .container .list-item-input {
+    width: 100%;
+    margin-top: -46px;
+    line-height: 21px;
+    z-index: 10;
+    margin-bottom: 5px;
+    outline: none;
+    font-size: 15px;
+    font-weight: 300;
   }
 </style>

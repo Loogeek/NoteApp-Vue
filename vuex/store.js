@@ -28,11 +28,23 @@ export const mutations = {
     state.activeNote = newNote
   },
   // 编辑节点内容
-  EDIT_NOTE (state, text) {
-    state.activeNote.text = text
+  EDIT_NOTE (state, event) {
+    state.activeNote.text = event.target.value
   },
-  EDIT_TITLE (state, title) {
-    state.activeNote.title = title
+  // 编辑节点标题
+  DONE_EDIT_TITLE (state, event) {
+    const value = event.target.value.trim()
+    if (value) {
+      state.activeNote.title = value
+    } else {
+      state.activeNote.title = 'New Note'
+    }
+    state.activeNote.editing = false
+  },
+  // 取消编辑节点标题
+  CANCEL_EDIT_TITLE (state, event) {
+    event.target.value = state.activeNote.title
+    state.activeNote.editing = false
   },
   // 删除节点
   DELETE_NOTE (state) {

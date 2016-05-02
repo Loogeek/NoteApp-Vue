@@ -5,11 +5,11 @@
        class="glyphicon glyphicon-star"
        :class="{starred: activeNote ? activeNote.favorite : ''}">
     </i>
-    <i @click="deleteNote" class="glyphicon glyphicon-remove"></i>
     <i @click="showMark"
        class="glyphicon glyphicon-sunglasses"
        :class="{starred: activeNote ? activeNote.marked : ''}">
     </i>
+    <i @click="deleteNote" class="glyphicon glyphicon-remove"></i>
   </div>
 </template>
 
