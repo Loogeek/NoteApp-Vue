@@ -25,7 +25,7 @@
     <div class="container">
       <ul class="list-group">
         <li v-for="note in filteredNotes">
-          <label class="list-group-item-heading list-group-item"
+          <label class="list-group-item list-item-laber"
             @dblclick="note.editing = true"
             @click="updateActiveNote(note)"
             :class="{active: activeNote === note}">
@@ -122,17 +122,16 @@
     border-radius: 0;
   }
 
-  .list-group-item-heading {
+  .list-item-laber {
     font-weight: 300;
     font-size: 15px;
   }
 
   .container .list-item-input {
     width: 100%;
-    margin-top: -46px;
+    margin-top: -41px;
     line-height: 21px;
     z-index: 10;
-    margin-bottom: 5px;
     outline: none;
     font-size: 15px;
     font-weight: 300;
