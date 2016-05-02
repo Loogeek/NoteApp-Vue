@@ -1,4 +1,4 @@
-基于Vue和Vuex实现的一个简单带有Markdown功能的笔记应用
+基于Vue和Vuex实现的一个带有Markdown功能的简单笔记应用
 ======
 
 简介:
@@ -13,8 +13,12 @@
 
 项目整体效果
 -------
-![编辑页](https://github.com/Loogeek/Project_Imgs/blob/master/NoteApp-Vue/1.png)
-![Markdown显示](https://github.com/Loogeek/Project_Imgs/blob/master/NoteApp-Vue/2.png)
+<div style="text-align:center;margin-bottom: 40px;">
+  <img src="https://github.com/Loogeek/Project_Imgs/blob/master/NoteApp-Vue/1.png" alt="编辑页"/>
+</div>
+<div style="text-align:center;">
+  <img src="https://github.com/Loogeek/Project_Imgs/blob/master/NoteApp-Vue/2.png" alt="编辑页"/>
+</div>
 
 运行
 -------
