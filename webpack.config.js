@@ -1,4 +1,5 @@
 module.exports = {
+  devtool: '#cheap-module-source-map',
   entry: './index.js',
   output: {
     path: __dirname,
@@ -28,9 +29,5 @@ module.exports = {
         loader: 'vue'
       }
     ]
-  },
-  babel: {
-    presets: ['es2015'],
-    plugins: ['transform-runtime']
   }
 }
