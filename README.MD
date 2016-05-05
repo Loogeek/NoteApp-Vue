@@ -1,6 +1,7 @@
 基于Vue和Vuex实现的一个带有Markdown功能的简单笔记应用
 ======
 
+
 简介:
 ----
 - 该项目使用Vue.js通过组件化开发完成；
@@ -11,6 +12,10 @@
 - 双击标题可修改标题内容；
 - 可添加、标记及删除节点；
 - 使用Karma + jasmine进行简单的测试。
+
+效果展示
+----
+<a href="http://loogeek.github.io/NoteApp-Vue" target="\_blank">Demo</a>
 
 项目整体效果
 -------
