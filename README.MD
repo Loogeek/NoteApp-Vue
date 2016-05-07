@@ -10,7 +10,8 @@
 - 使用`ESlint`对项目代码进行风格统一及校验；
 - 使用`marked`让编辑区支持Markdown语法，可通过左侧工具栏第三个按钮查看Markdown显示效果；
 - 可添加、标记及删除节点，并可修改标题内容；
-- 使用`Karma + jasmine`进行简单的测试。
+- 使用`Karma + jasmine`进行简单的测试；
+- 通过`Webpack-dev-server`运行，并支持代码`热替换`
 
 效果展示
 ----
