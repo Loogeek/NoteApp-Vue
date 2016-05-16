@@ -28,8 +28,8 @@
 
 运行
 -------
-npm install安装包后通过npm run dev命令启动服务器，127.0.0.1:4000下查看项目，如果无法打开页面可尝试使用localhost:4000或者0.0.0.0:4000查看  
-若想改成其他启动端口可在package.json文件中修改scripts下的dev所对应的--port端口
+npm install安装包后通过npm run dev命令启动服务器，localhost:8080下查看项目，
+若想改成其他启动端口可在package.json文件中给scripts下的dev添加--host域名及--port端口
 
 ``` bash
 npm install    

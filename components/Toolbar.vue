@@ -20,7 +20,7 @@
   export default {
     vuex: {
       getters: {
-        activeNote: getActiveNote
+        activeNote: getActiveNote                 // 获取当前节点
       },
       actions: {
         addNote,
